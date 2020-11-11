@@ -204,7 +204,8 @@ public class NewClockActivity extends BaseActivity{
                 tomato.setLongBreak(longBreak);
                 tomato.setFrequency(frequency);
                 tomato.setImgId(imgId);
-                boolean isSync = (Boolean) SPUtils.get(getApplication(),"sync",true);
+
+//                boolean isSync = (Boolean) SPUtils.get(getApplication(),"sync",true);
 //                if(isSync){
 //                    if(NetWorkUtils.isNetworkConnected(getApplication()) && User.getCurrentUser(User.class)!= null){
 //                        tomato.save(new SaveListener<String>() {

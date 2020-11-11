@@ -60,6 +60,8 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
     private MenuItem myMenuItem;
 
+    private int position=0;   // 初始化position为0
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -136,7 +138,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         nick_name.setOnClickListener(this);
 
         //数据库帮助类初始化
-        dbHelper = new MyDatabaseHelper(this,"Data.db",null,1);
+        dbHelper = new MyDatabaseHelper(this,"Data.db",null,2);
         dbHelper.getWritableDatabase();
 
         //动态获取权限
@@ -186,8 +188,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         myTabLayout.setTabsFromPagerAdapter(myFragmentAdapter);
 
         myViewPager.addOnPageChangeListener(pageChangeListener);
-
-
+        
     }
 
     private ViewPager.OnPageChangeListener pageChangeListener = new ViewPager.OnPageChangeListener() {

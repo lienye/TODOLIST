@@ -68,7 +68,7 @@
         </activity>
 
 <!--        yhy add-->
-        <!-- 注册添加新todo的页面-->
+        <!-- 注册添加新todo的页面-->x
         <activity android:name=".Activity.NewTodoActivity">
             <intent-filter>
                 <action android:name="android.intent.action.NEWTODO" />

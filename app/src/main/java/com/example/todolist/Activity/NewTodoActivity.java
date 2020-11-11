@@ -254,8 +254,8 @@ public class NewTodoActivity extends BaseActivity{
 //                        }
                     } else {
                         new TodoDao(getApplicationContext()).create(todos);
-//                        Intent intent = new Intent(NewTodoActivity.this, MainActivity.class);
-//                        setResult(2, intent);
+                        Intent intent = new Intent(NewTodoActivity.this, MainActivity.class);
+                        setResult(2, intent);
 //                        startService(new Intent(NewTodoActivity.this, AlarmService.class));
                         finish();
                     }
