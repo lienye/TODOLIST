@@ -8,5 +8,6 @@
     <!--浮动按钮边界值，参数-->
     <dimen name="fab_margin">16dp</dimen>
 
-
+<!--yhy add-->
+    <dimen name="preference_header_spacing">4dp</dimen>
 </resources>

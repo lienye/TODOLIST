@@ -63,10 +63,27 @@
         <activity android:name=".Activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+<!--        yhy add-->
+        <!-- 注册添加新todo的页面-->
+        <activity android:name=".Activity.NewTodoActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.NEWTODO" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- 注册添加新clock的页面-->
+        <activity android:name=".Activity.NewClockActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.NEWCLOCK" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>

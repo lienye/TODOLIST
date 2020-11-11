@@ -1,6 +1,8 @@
 package com.example.todolist.Bean;
 
-public class Todos {
+import cn.bmob.v3.BmobObject;
+
+public class Todos extends BmobObject {
 
     private String title;
     private String desc;

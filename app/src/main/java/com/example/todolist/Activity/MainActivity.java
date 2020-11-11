@@ -1,6 +1,7 @@
 package com.example.todolist.Activity;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.DashPathEffect;
@@ -203,6 +204,16 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                     public void onClick(View v){
                         //新建Todo画面
                         //跳转
+                        Intent intent = new Intent(MainActivity.this, NewTodoActivity.class);
+                        startActivityForResult(intent,1);
+//                        CircularAnim.fullActivity(MainActivity.this, v)
+//                                .go(new CircularAnim.OnAnimationEndListener() {
+//                                    @Override
+//                                    public void onAnimationEnd() {
+//                                        Intent intent = new Intent(MainActivity.this, NewTodoActivity.class);
+//                                        startActivityForResult(intent,1);
+//                                    }
+//                                });
                     }
                 });
             }else{
@@ -211,6 +222,8 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                     public void onClick(View v){
                         //新建Clock画面
                         //跳转
+                        Intent intent = new Intent(MainActivity.this, NewClockActivity.class);
+                        startActivityForResult(intent,1);
                     }
                 });
             }
