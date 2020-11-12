@@ -248,14 +248,15 @@ public class NewClockActivity extends BaseActivity{
                     values.put("objectId", tomato.getObjectId());
                     values.put("imgId", imgId);
                     id = db.insert("Clock",null,values);
+                    System.out.println(id);
                 // ClockActivity还没写，这个页面是番茄时钟的页面
-                    Intent intent = new Intent(NewClockActivity.this, ClockActivity.class);
-                    intent.putExtra("id",id);
-                    intent.putExtra("clocktitle",clockTitle);
-                    intent.putExtra("workLength", workLength);
-                    intent.putExtra("shortBreak", shortBreak);
-                    intent.putExtra("longBreak", longBreak);
-                    startActivity(intent);
+//                    Intent intent = new Intent(NewClockActivity.this, ClockActivity.class);
+//                    intent.putExtra("id",id);
+//                    intent.putExtra("clocktitle",clockTitle);
+//                    intent.putExtra("workLength", workLength);
+//                    intent.putExtra("shortBreak", shortBreak);
+//                    intent.putExtra("longBreak", longBreak);
+//                    startActivity(intent);
                     finish();
 //                }
 

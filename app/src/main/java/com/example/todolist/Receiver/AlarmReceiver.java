@@ -19,7 +19,7 @@ import com.example.todolist.Activity.MainActivity;
 import com.example.todolist.Utils.SPUtils;
 
 public class AlarmReceiver extends BroadcastReceiver {
-    
+
     private static final int NOTIFICATION_ID_1 = 0x00113;
     private String title;
     private String dsc;

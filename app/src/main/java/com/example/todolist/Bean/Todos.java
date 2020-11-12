@@ -11,6 +11,10 @@ public class Todos extends BmobObject {
     private int id,isAlerted,isRepeat,imgId;
     private long remindTime,remindTimeNoDay;
 
+    public Todos() {
+
+    }
+
     public long getRemindTime() {
         return remindTime;
     }

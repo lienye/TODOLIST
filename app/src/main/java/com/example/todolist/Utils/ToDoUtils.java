@@ -74,7 +74,7 @@ public class ToDoUtils {
         TodoDao toDoDao = new TodoDao(context);
         Todos todos = toDoDao.getTask(id);
         if (todos != null) {
-            toDoDao.setisAlerted(id);
+            toDoDao.setIsAlerted(id);
         }
     }
 
