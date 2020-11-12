@@ -9,13 +9,13 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.todolist.Activity.ClockActivity">
 
-<!--    <ImageView-->
-<!--        android:id="@+id/clock_bg"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:scaleType="centerCrop"-->
-<!--        android:alpha="0.6"-->
-<!--        android:src="@drawable/login_bg"/>-->
+    <ImageView
+        android:id="@+id/clock_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:alpha="0.6"
+        android:src="@drawable/login_bg"/>
 
     <LinearLayout
         android:id="@+id/linearLayout"

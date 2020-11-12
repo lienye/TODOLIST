@@ -26,6 +26,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
@@ -46,6 +48,8 @@ import es.dmoral.toasty.Toasty;
 import me.drakeet.materialdialog.MaterialDialog;
 
 public class ClockActivity extends BaseActivity {
+
+    final MaterialDialog exitDialog = new MaterialDialog(this);
 
     private ClockApplication mApplication;
     private MenuItem mMenuItemIDLE;
@@ -88,7 +92,7 @@ public class ClockActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setStatusBar();
-        setContentView(R.layout.clock);
+        setContentView(R.layout.activity_clock);
         Intent intent = getIntent();
         clockTitle = intent.getStringExtra("clocktitle");
         workLength = intent.getIntExtra("workLength",ClockApplication.DEFAULT_WORK_LENGTH);
@@ -136,7 +140,6 @@ public class ClockActivity extends BaseActivity {
                 .load(bg_id)
                 .apply(options)
                 .into(clock_bg);
-
     }
 
     private void initActions() {
@@ -192,7 +195,7 @@ public class ClockActivity extends BaseActivity {
         mBtnStop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final MaterialDialog exitDialog = new MaterialDialog(ClockActivity.this);
+//                final MaterialDialog exitDialog = new MaterialDialog(ClockActivity.this);
                 exitDialog.setTitle("提示")
                         .setMessage("放弃后，本次番茄钟将作废")
                         .setPositiveButton("确定", new View.OnClickListener() {
@@ -202,6 +205,8 @@ public class ClockActivity extends BaseActivity {
                                 startActivity(intent2);
                                 stopService(new Intent(ClockActivity.this, FocusService.class));
                                 Glide.get(ClockActivity.this).clearMemory();
+                                stopService(ClockService.newIntent(getApplicationContext()));
+                                exitDialog.dismiss();
                                 exitApp();
                             }
                         })
@@ -361,7 +366,7 @@ public class ClockActivity extends BaseActivity {
 //                            exitApp();
 //                        }
 //                    }).show();
-            final MaterialDialog exitDialog = new MaterialDialog(this);
+//            final MaterialDialog exitDialog = new MaterialDialog(this);
             exitDialog.setTitle("提示")
                     .setMessage("本次番茄钟将作废，是否退出")
                     .setPositiveButton("退出", new View.OnClickListener() {
@@ -371,6 +376,8 @@ public class ClockActivity extends BaseActivity {
                             startActivity(intent2);
                             stopService(new Intent(ClockActivity.this, FocusService.class));
                             Glide.get(ClockActivity.this).clearMemory();
+                            stopService(ClockService.newIntent(getApplicationContext()));
+                            exitDialog.dismiss();
                             exitApp();
                         }
                     })
@@ -379,7 +386,6 @@ public class ClockActivity extends BaseActivity {
                             exitDialog.dismiss();
                         }
                     });
-
             exitDialog.show();
         }
         return super.onKeyDown(keyCode, event);
@@ -572,7 +578,7 @@ public class ClockActivity extends BaseActivity {
     }
 
     private void exitApp() {
-        stopService(ClockService.newIntent(getApplicationContext()));
+//        stopService(ClockService.newIntent(getApplicationContext()));
         mApplication.exit();
         finish();
     }

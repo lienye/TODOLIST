@@ -48,7 +48,7 @@ public class ClockFragment extends Fragment {
     private ClockRecyclerViewAdapter clockRecyclerViewAdapter;
     private List<Tomato> clockList = new ArrayList<>();
     private LinearLayoutManager layout;
-    private User currentUser;
+//    private User currentUser;
     private List<Tomato> localTomato;
     private ItemTouchHelper mItemTouchHelper;
     private ItemTouchHelper.Callback callback;
@@ -81,12 +81,6 @@ public class ClockFragment extends Fragment {
         recyclerView.addItemDecoration(new SpacesItemDecoration(0));
         recyclerView.setAdapter(clockRecyclerViewAdapter);
 
-        // test alert
-        new AlertDialog.Builder(getContext())
-                .setTitle("标题")
-                .setIcon(R.mipmap.ic_launcher)
-                .setMessage("消息内容")
-                .create().show();
         recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), recyclerView, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
@@ -111,7 +105,23 @@ public class ClockFragment extends Fragment {
 
             @Override
             public void onItemLongClick(View view, final int position) {
+                clockTitle = clockList.get(clockRecyclerViewAdapter.getItemCount()-1-position).getTitle();
+                workLength = clockList.get(clockRecyclerViewAdapter.getItemCount()-1-position).getWorkLength();
+                shortBreak = clockList.get(clockRecyclerViewAdapter.getItemCount()-1-position).getShortBreak();
+                longBreak = clockList.get(clockRecyclerViewAdapter.getItemCount()-1-position).getLongBreak();
+                frequency = clockList.get(clockRecyclerViewAdapter.getItemCount()-1-position).getFrequency();
 
+                SPUtils.put(context,"pref_key_work_length", workLength);
+                SPUtils.put(context,"pref_key_short_break", shortBreak);
+                SPUtils.put(context,"pref_key_long_break", longBreak);
+                SPUtils.put(context,"pref_key_long_break_frequency", frequency);
+
+                Intent intent = new Intent(getActivity(), ClockActivity.class);
+                intent.putExtra("clocktitle",clockTitle);
+                intent.putExtra("workLength", workLength);
+                intent.putExtra("shortBreak", shortBreak);
+                intent.putExtra("longBreak", longBreak);
+                startActivity(intent);
             }
         }));
 
