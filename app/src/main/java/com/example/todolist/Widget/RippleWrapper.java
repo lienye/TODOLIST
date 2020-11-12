@@ -7,13 +7,13 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.support.v4.content.ContextCompat;
+import androidx.core.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.widget.RelativeLayout;
 
-import com.example.lulin.todolist.R;
+import com.example.todolist.R;
 
 import java.util.ArrayList;
 

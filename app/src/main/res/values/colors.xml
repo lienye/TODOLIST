@@ -16,5 +16,9 @@
 
     <color name="half_black">#808080</color>
     <color name="half_black_2">#8a8a8a</color>
+    <color name="white">#ffffff</color>
+    <color name="white_pressed">#f1f1f1</color>
+    <!-- 水纹 -->
+    <color name="colorRipple">#F4A5A0</color>
 
 </resources>

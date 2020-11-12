@@ -18,21 +18,21 @@ import android.os.Build;
 import android.os.IBinder;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
-import android.support.v4.app.NotificationCompat;
+import androidx.core.app.NotificationCompat;
 import android.util.Log;
 
-import com.example.lulin.todolist.R;
-import com.example.lulin.todolist.Activity.ClockActivity;
-import com.example.lulin.todolist.Dao.ClockDao;
-import com.example.lulin.todolist.Bean.Clock;
-import com.example.lulin.todolist.Utils.CountDownTimer;
-import com.example.lulin.todolist.Utils.NetWorkUtils;
-import com.example.lulin.todolist.Utils.SPUtils;
-import com.example.lulin.todolist.Utils.Sound;
-import com.example.lulin.todolist.Utils.TimeFormatUtil;
-import com.example.lulin.todolist.Bean.User;
-import com.example.lulin.todolist.Utils.WakeLockHelper;
-import com.example.lulin.todolist.Widget.ClockApplication;
+import com.example.todolist.R;
+import com.example.todolist.Activity.ClockActivity;
+import com.example.todolist.Dao.ClockDao;
+import com.example.todolist.Bean.Clock;
+import com.example.todolist.Utils.CountDownTimer;
+//import com.example.todolist.Utils.NetWorkUtils;
+import com.example.todolist.Utils.SPUtils;
+import com.example.todolist.Utils.Sound;
+import com.example.todolist.Utils.TimeFormatUtil;
+import com.example.todolist.Bean.User;
+import com.example.todolist.Utils.WakeLockHelper;
+import com.example.todolist.Widget.ClockApplication;
 
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
@@ -154,11 +154,12 @@ public class ClockService extends Service implements CountDownTimer.OnCountDownT
                         mDBAdapter.open();
                         mID = mDBAdapter.insert(mTimer.getStartTime(),
                                 mTimer.getMinutesInFuture(),clockTitle);
-                        if(NetWorkUtils.isNetworkConnected(getApplication())) {
-                            user = User.getCurrentUser(User.class);
-                        }
+//                        暂时无网络连接
+//                        if(NetWorkUtils.isNetworkConnected(getApplication())) {
+//                            user = User.getCurrentUser(User.class);
+//                        }
                         clock = new Clock();
-                        clock.setUser(user);
+//                        clock.setUser(user);
                         clock.setTitle(clockTitle);
                         clock.setStart_time(ClockDao.formatDateTime(mTimer.getStartTime()));
                         clock.setDuration(mTimer.getMinutesInFuture());
@@ -277,30 +278,31 @@ public class ClockService extends Service implements CountDownTimer.OnCountDownT
                 mDBAdapter.close();
                 clock.setEnd_time(ClockDao.formatDateTime(new Date()));
 
-                if(NetWorkUtils.isNetworkConnected(getApplication()) || User.getCurrentUser(User.class)!= null){
-                clock.save(new SaveListener<String>() {
-                    @Override
-                    public void done(String s, BmobException e) {
-                        if (e==null){
-                            Log.i("ClockService", "保存番茄钟到bmob成功");
-                            user.increment("total", (int) SPUtils
-                                    .get(getApplication(),"pref_key_work_length", ClockApplication.DEFAULT_WORK_LENGTH));
-                            user.update(new UpdateListener() {
-                                @Override
-                                public void done(BmobException e) {
-                                    if (e==null){
-                                        Log.i("ClockService", "番茄钟累计时间增加成功");
-                                    } else {
-                                        Log.i("ClockService", "番茄钟累计时间增加失败");
-                                    }
-                                }
-                            });
-                        } else {
-                            Log.i("ClockService", "保存番茄钟到bmob失败: " + e.getMessage());
-                        }
-                    }
-                });
-                }
+                // 联网统计番茄时钟总时常
+//                if(NetWorkUtils.isNetworkConnected(getApplication()) || User.getCurrentUser(User.class)!= null){
+//                clock.save(new SaveListener<String>() {
+//                    @Override
+//                    public void done(String s, BmobException e) {
+//                        if (e==null){
+//                            Log.i("ClockService", "保存番茄钟到bmob成功");
+//                            user.increment("total", (int) SPUtils
+//                                    .get(getApplication(),"pref_key_work_length", ClockApplication.DEFAULT_WORK_LENGTH));
+//                            user.update(new UpdateListener() {
+//                                @Override
+//                                public void done(BmobException e) {
+//                                    if (e==null){
+//                                        Log.i("ClockService", "番茄钟累计时间增加成功");
+//                                    } else {
+//                                        Log.i("ClockService", "番茄钟累计时间增加失败");
+//                                    }
+//                                }
+//                            });
+//                        } else {
+//                            Log.i("ClockService", "保存番茄钟到bmob失败: " + e.getMessage());
+//                        }
+//                    }
+//                });
+//                }
 
                 if (success) {
                     long amountDurations =

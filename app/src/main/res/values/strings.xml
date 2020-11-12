@@ -39,4 +39,15 @@
     <string name="scene_work">工作</string>
     <string name="scene_short_break">短时休息</string>
     <string name="scene_long_break">长时休息</string>
+
+    <!-- 通知 -->
+    <string name="notification_focus">番茄工作中</string>
+    <string name="notification_focus_pause">番茄暂停中</string>
+    <string name="notification_break">正在休息</string>
+    <string name="notification_break_pause">休息暂停中</string>
+    <string name="notification_time_left">还剩</string>
+    <string name="notification_finish">放下工作，准备休息</string>
+    <string name="notification_finish_content">已经完成一个番茄钟，休息一下吧！</string>
+    <string name="notification_break_finish">休息结束</string>
+    <string name="notification_break_finish_content">休息结束，开启下一个番茄钟吧！</string>
 </resources>

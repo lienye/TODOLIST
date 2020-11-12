@@ -18,7 +18,7 @@ import android.os.IBinder;
 import android.os.PowerManager;
 import android.util.Log;
 
-import com.example.lulin.todolist.Activity.ClockActivity;
+import com.example.todolist.Activity.ClockActivity;
 
 
 import java.util.ArrayList;

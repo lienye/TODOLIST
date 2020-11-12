@@ -6,9 +6,9 @@ import android.content.Intent;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.example.lulin.todolist.Activity.BasicActivity;
-import com.example.lulin.todolist.Activity.MainActivity;
-import com.example.lulin.todolist.Service.AlarmService;
+import com.example.todolist.Activity.BaseActivity;
+import com.example.todolist.Activity.MainActivity;
+import com.example.todolist.Service.AlarmService;
 
 /**
  * 自启动
