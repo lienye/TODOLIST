@@ -34,7 +34,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             "shortBreak INT," +
             "longBreak INT," +
             "frequency INT," +
-            "imgID INT)";
+            "imgId INT)";
 
     public static final String TIME = "create table timer_schedule(" +
             "_id INTEGER primary key autoincrement," +

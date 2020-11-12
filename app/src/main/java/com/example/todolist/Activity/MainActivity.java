@@ -188,7 +188,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         myTabLayout.setTabsFromPagerAdapter(myFragmentAdapter);
 
         myViewPager.addOnPageChangeListener(pageChangeListener);
-        
+
     }
 
     private ViewPager.OnPageChangeListener pageChangeListener = new ViewPager.OnPageChangeListener() {

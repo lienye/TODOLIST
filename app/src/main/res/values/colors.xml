@@ -10,5 +10,11 @@
 
     <color name="grey">#14d0d0d0</color>
 
+    <!-- 倒计时钟 -->
+    <color name="colorStrokeCircle">#55ffffff</color>
+    <color name="colorStrokeArc">#ffffff</color>
+
+    <color name="half_black">#808080</color>
+    <color name="half_black_2">#8a8a8a</color>
 
 </resources>
