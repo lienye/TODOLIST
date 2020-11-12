@@ -85,12 +85,11 @@
         </activity>
 
         <!-- 注册锤子时钟的页面-->
-        <activity android:name=".Activity.ClockActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.CLOCK" />
-                <category android:name="android.intent.category.DEFAULT" />®
-            </intent-filter>
-        </activity>
+        <activity
+            android:name=".Activity.ClockActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleTask"
+            android:excludeFromRecents="true"/>
 
     </application>
 

@@ -150,6 +150,17 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         //初始化滑动分页
         initViewPager();
 
+
+        fab.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                //新建Todo画面
+                //跳转
+                Intent intent = new Intent(MainActivity.this, NewTodoActivity.class);
+                startActivityForResult(intent,1);
+            }
+        });
+
     }
 
     /**
