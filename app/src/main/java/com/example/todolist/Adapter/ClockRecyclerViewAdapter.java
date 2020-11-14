@@ -141,20 +141,20 @@ public class ClockRecyclerViewAdapter extends RecyclerView.Adapter<ClockRecycler
                             db.delete("Clock","clocktitle = ?",
                                     new String[]{clockTitle});
 
-                            if (User.getCurrentUser(User.class) != null){
-                                TomatoUtils.deleteNetTomato(context, tomato, new TomatoUtils.DeleteTomatoListener() {
-                                    @Override
-                                    public void onSuccess() {
-
-                                    }
-
-                                    @Override
-                                    public void onError(int errorCord, String msg) {
-                                        Log.i("ClockFragment", "msg ");
-                                        Toasty.warning(context, msg, Toast.LENGTH_SHORT, true).show();
-                                    }
-                                });
-                            }
+//                            if (User.getCurrentUser(User.class) != null){
+//                                TomatoUtils.deleteNetTomato(context, tomato, new TomatoUtils.DeleteTomatoListener() {
+//                                    @Override
+//                                    public void onSuccess() {
+//
+//                                    }
+//
+//                                    @Override
+//                                    public void onError(int errorCord, String msg) {
+//                                        Log.i("ClockFragment", "msg ");
+//                                        Toasty.warning(context, msg, Toast.LENGTH_SHORT, true).show();
+//                                    }
+//                                });
+//                            }
                             tomatoList.remove(truePosition);
                             notifyItemRemoved(itemPosition);
                             notifyItemRangeChanged(itemPosition,tomatoList.size());

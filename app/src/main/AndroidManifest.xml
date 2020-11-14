@@ -69,13 +69,11 @@
         </activity>
 
 <!--        yhy add-->
-        <!-- 注册添加新todo的页面-->x
-        <activity android:name=".Activity.NewTodoActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.NEWTODO" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
+        <!-- 注册添加新todo的页面-->
+        <activity
+            android:name=".Activity.NewTodoActivity"
+            android:parentActivityName=".Activity.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <!-- 注册添加新clock的页面-->
         <activity
